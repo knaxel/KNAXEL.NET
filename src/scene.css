@@ -1,0 +1,20 @@
+canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+mix-blend-mode: screen;
+}
+canvas{
+  
+}
+body {
+
+  font-family: "Barlow", sans-serif;
+  font-weight: 100;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+}
