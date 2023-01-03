@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import PixelAsh from './ThreeJS_KNAXELSBUNDLE';
+import PixelAsh from '../scripts/ThreeJS_KNAXELSBUNDLE2';
 import Stats from 'stats-js'; 
 import { GUI } from 'dat.gui';
-
-import effect_perspective from './scripts/effect_perspective'
-import './scene.css';
 
 class Scene extends Component {
 
@@ -28,7 +25,6 @@ class Scene extends Component {
         window.addEventListener('resize', this.handleResize);
 
 
-        effect_perspective();
 
     }
 

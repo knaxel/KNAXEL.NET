@@ -13,7 +13,7 @@ export default class NavCard extends Component {
   render(){
     return (
       <div className={`card  ${this.props.className}`} >
-      <Link href={this.props.href} className="" >
+      <a href={this.props.href} className="" >
         <div className="media">
             <div> 
             <img src={this.props.src}/>
@@ -21,10 +21,10 @@ export default class NavCard extends Component {
             {/*<div className="shadow" ></div>*/}
         </div>
 
-        <div  className={` glitch ${this.props.className}`} >
+        <div  className={` glitch `} >
                       <span className="line ">{this.props.text}</span>
                     </div> 
-        </Link>
+        </a>
       </div>
       );
   }

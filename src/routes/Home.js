@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 
-import Scene from '../Scene';
-import NavCard from '../NavCard';
-import NavLink from '../NavLink';
-import '../root.css';
+import effect_perspective from '../scripts/effect_perspective';
+
+import Scene from '../elements/Scene';
+import NavCard from '../elements/NavCard';
+import NavLink from '../elements/NavLink';
+
+import '../root.scss';
 
 export default class Home extends Component {
 
@@ -13,23 +16,21 @@ export default class Home extends Component {
   }
     // ******************* COMPONENT LIFECYCLE ******************* //
     componentDidMount() {
+        effect_perspective();
 
     }
     render() { return (
     <div  id="perspective-container">
-      <div className="row title  perspective-far">
-          <NavLink text="KNAXEL.NET" className="" href="#" />
+      <NavLink text="KNAXEL.NET" className="row title perspective-far " href="#" />
+      <div className="row perspective">
+        <NavCard text="MEDIA"  href="media" className="" src="./idk3.gif" href="./media"/>
+        <div className="col"  >
+          <NavCard text="EXPLORE"  className="" src="./idk2.gif"  href="#" />
+          <NavLink text="PROJECTS" className=" " href="./projects" />
+        </div>
+        <NavCard text="ABOUT"  className="" src="./idk7.gif"  href="#" />
       </div>
-      <div className="row">
-        <NavCard text="MEDIA"  href="media" className="perspective" src="./idk3.gif"/>
-          <div className="col"  >
-            <NavCard text="EXPLORE"  className="perspective" src="./idk2.gif"/>
-            <NavLink text="PROJECTS" className="perspective " href="#" />
-          </div>
-        <NavCard text="ABOUT"  className="perspective" src="./idk7.gif"/>
-      </div>
-
-      <Scene />
+      <Scene/>
         
     </div> )};
   }
