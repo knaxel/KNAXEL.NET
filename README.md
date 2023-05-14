@@ -6,8 +6,7 @@ Highlight Uses : **ReactJS, ThreeJS, JQuery, WebGL, Perspective CSS.**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
-## getting started
+## Get Started
 
 In the project directory, you can run:
 
@@ -25,3 +24,10 @@ Builds the app for production to the `build` folder.\
 
 ### Deployment
 [https://knaxel.net](https://knaxel.net)
+
+## License
+Copyright 2023 Emerson Philipp
+
+All rights reserved. This work may not be reproduced or redistributed in whole or in part without express written permission from [your name].
+
+This repository is provided for educational and informational purposes only. Any use of the code or content within this repository is at your own risk. Emerson makes no representations or warranties about the suitability, completeness, timeliness, reliability, legality, or accuracy of the code or content within this repository.
