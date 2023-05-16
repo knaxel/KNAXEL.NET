@@ -14,14 +14,14 @@ export default class ProjectCard extends Component {
     return (
       <div>
       <div className={`flip-card ${this.props.className}`} >
-        <a  href={this.props.href}  className={`flip-card-inner`} >
-          <div  className="flip-card-front" >
+        <a href={this.props.href}   className={`flip-card-inner`} >
+        
             <div className="media">
-              <div> 
+            <div>
               <img src={this.props.src}/>
               </div>
-              {/*<div className="shadow" ></div>*/}
             </div>
+          <div  className="flip-card-front" >
 
             <div  className={` glitch `} >
               <span  className="line ">{this.props.name}</span>
@@ -32,7 +32,7 @@ export default class ProjectCard extends Component {
             <div  className={` glitch `} >
               <span className="line ">{this.props.name}</span>
             </div> 
-            <div  className={` glitch `} >
+            <div   className={` glitch `} >
               <span  className="line ">{this.props.name}</span>
             </div> 
           </div>

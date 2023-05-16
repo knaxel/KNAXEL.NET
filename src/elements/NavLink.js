@@ -11,9 +11,11 @@ export default class NavLink extends Component {
 
     }
     render() {
-    	return ( <div className={`navlink `} > <a href={this.props.href} className={` glitch  ${this.props.className}`} >
+    	return ( <div className={`navlink ${this.props.className}`} >
+                  <a href={this.props.href} className={` glitch  `} >
                       <span className="line ">{this.props.text}</span>
-                    </a></div>);
+                  </a>
+                </div>);
 
     }
 }

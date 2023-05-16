@@ -1,36 +1,108 @@
 :root {
-		font-size:32px;	
-		background: black;
+		font-size:32px;
+  color:white;
 }
 * {
     box-sizing: border-box;
 }
 body,html {
+	width:100%;
+	height: 100%;
     margin: 0;
     padding: 0;
 	  font-family: "Barlow", sans-serif;
 	  font-weight: 100;
 	  justify-content: center;
 	  align-items: center;
+	  background: black;
+}
+#root{
+	width:100%;
+	height: 100%;
+	height:fit-content;
+	padding-bottom:1.5rem;
+}
+#root div.background-video{
+  width: 100% !important; 
+  height: 100% !important;  
+  overflow: hidden !important; 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+#root video {
+	  /* Make video to at least 100% wide and tall */
+  min-width: 100% !important; 
+  min-height: 100% !important; 
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto !important;
+  height: auto !important;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%,-50%);
 }
 canvas{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
+  transform:translateZ(-1000px);
 }
 a{
   text-decoration: none;
-  color:white
+  color:white;
+	padding-left: .2rem;
+	padding-right: .2rem;
 
 }
+button{
+	  font-family: "Barlow", sans-serif;
+	  font-weight: 100;
+		font-size:32px;
+}
+h1{
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+}
+p{
+	width: 10rem;
+}
+.audio{
+	position: fixed;
+	bottom:0;
+	right:0;
+	z-index: 10;
+}
+.audio button{
 
+	z-index: 10;
+	left: auto;
+	right: auto;
+}
+
+@media screen and (min-width: 992px) {
+	.audio{
+    left: 0;
+    right: 0;
+    text-align: center;
+	}
+}
 /****** grid */
+.row *{
 
+  	z-index: 1;
+}
 .row{
+	position:relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  	z-index: 1;
 }
 .row >div {
 	margin-left:auto;
@@ -38,6 +110,7 @@ a{
 
 }
 .col{
+  	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;	
@@ -53,18 +126,11 @@ a{
 #perspective-container {
 	display: flex;
 	flex-direction: column;
-	padding-top: 5rem;
-	height: 100vh;
-	width: 100vw;
   align-items: center;
 }
-@media screen and (min-width: 992px) {
-	#perspective-container {
-	  overflow: hidden
-	}
-}
+
 .perspective-far{
-	transform: perspective(430px) translateZ(-250px);
+	transform: perspective(556px) translateZ(-250px);
 }
 .perspective {
   height: fit-content;
@@ -72,16 +138,15 @@ a{
 }
 
 /******* Text */
+
 .title , .title .line, .title a {
-	color:white;
+	color:white; 
 	display: block;
 	font-weight: 300;
 	font-size:1.9rem;
 	line-height: 3rem;
 	border: none;
 	text-decoration: underline;
-	background-size: 23px 23px, 100px 50px, 50px 50px, 50px 50px;
-	background-position: -15px -15px, -15px -5px, -5px -5px, -5px -5px;
 }
 
 @media screen and (min-width: 992px) {
@@ -97,47 +162,61 @@ a{
 
 .glitch {
 	color:white;
+	border: none;
 	background-position: 0 0, 5px 5px;
 	--var-col :rgba(255,245,245,.25);
-	background: repeating-linear-gradient( rgba(0,0,0,0.0), rgba(0,0,0,0.0) 1px,var(--var-col)  1px, var(--var-col) 2px),
-	repeating-linear-gradient(0.25turn, rgba(0,0,0,0.0), rgba(0,0,0,0.0) 1px, var(--var-col) 1px, var(--var-col) 2px);
+	background: 
+	repeating-linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5) 1px,var(--var-col)  1px, var(--var-col) 2px),
+	repeating-linear-gradient(0.25turn, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 1px, var(--var-col) 1px, var(--var-col) 2px);
 
 }
 
 /*********** Cards */
 
 .flip-card {
-  width: 200px;
-  height: 300px;
+  width: 255px;
+  height: 255px;
 
-	margin-left:1rem;
-	margin-right:1rem;
+	margin-left:.5rem;
+	margin-right:.5rem;
+  margin-top: .1rem;
+  margin-bottom: .25rem;
+  display: flex;
+  flex-direction:column;
 }
+.flip-card .glitch{
+
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	align-items:center;
+	text-align: center;
+}
+.flip-card .glitch span { 
+
+	width: 100%;
+	}
 .flip-card-inner{
 	position: relative;
 	display:block;
-  transition: transform 0.8s;
+  transition: transform .8s;
   transform-style: preserve-3d;
 	height:100%;
 	width:100%;
 }
 .flip-card-front{
- 	display: flex;
- 	flex-direction: column;
   /*border: 1px dotted white;*/
   justify-content: center;
   text-align: center;
-  padding: .1rem;
-  margin-top: .25rem;
-  margin-bottom: .25rem;
 	height:100%;
 	width:100%;
+  width: 255px;
+  height: 255px;
 }
 .flip-card-back{
 	height:100%;
 	width:100%;
-	background: rgba(255,255,255,.5);
-	position:relative;
+  background-color: rgba(0,0,0,.85);
   transform: rotateY(180deg);
 }
 .flip-card-back ,.flip-card-front{
@@ -145,21 +224,26 @@ a{
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
+.flip-card .media {
+	position: absolute;
+}
 .flip-card .media > div img { 
-		height: 192px;
-		width: 192px;
+  width: 255px;
+  height: 255px;
 }
-.flip-card .media{
-	display:block;
-	margin-bottom: .5rem;
+.flip-card:hover{
+	cursor: pointer;
 }
+
+@media screen and (min-width: 592px) {
 .flip-card:hover > .flip-card-inner {
   transform: rotateY(180deg);
 }
+}
 @media screen and (min-width: 992px) {
 	.flip-card{
-	  margin-top: 2rem;
-	  margin-bottom: 2rem;
+	  margin-top: 1rem;
+	  margin-bottom: 1rem;
 	}
 }
 
@@ -198,20 +282,22 @@ a{
 
 @media screen and (min-width: 992px) {
 	.card a{
-	  margin-top: 2rem;
-	  margin-bottom: 2rem;
+	  margin-top: 1rem;
+	  margin-bottom: 1rem;
 	}
 }
-
-
 /********************* Effects */
-.card a, {
-		animation:  1s ease 0s 1 fly-in;
+.fly-in{
+	will-change: left;
+	animation: fly-in 1.5s  ;
+}.fly-in-far{
+	will-change: left;
+	animation: fly-in-far 1.5s  ;
 }
-
-.card:hover, .navlink:hover {
+.card a:hover, .navlink a:hover, button:hover {
     animation: shake 525ms infinite;
     font-weight: bold;
+    cursor: pointer;
 }
 
 @keyframes shake {
@@ -240,8 +326,46 @@ a{
         -webkit-filter: hue-rotate(-360deg);
   }
 }
+
+@keyframes fly-in {
+0%{
+		opacity: 0;
+		-webkit-transform:perspective(1000px) translateZ(-1000px) ;
+		transform:perspective(1000px) translateZ(-1000px) ;
+	}
+30%{
+		opacity: 0;
+		-webkit-transform:perspective(1000px) translateZ(-1000px) ;
+		transform:perspective(1000px) translateZ(-1000px) ;
+	}
+	100%{
+		opacity: 1;
+		-webkit-transform: perspective(1000px) translateZ(0px) ;
+		transform: perspective(1000px) translateZ(0px) ;
+	}
+}
+@keyframes fly-in-far {
+0%{
+		opacity: 0;
+		transform:perspective(430px) translateZ(-1000px) ;
+	}
+30%{
+		opacity: 0;
+		transform:perspective(430px) translateZ(-1000px) ;
+	}
+	100%{
+		opacity: 1;
+		transform: perspective(430px) translateZ(-250px) ;
+	}
+}
+@media screen and (min-width: 992px) {
+
 @keyframes fly-in {
 	0%{
+		opacity: 0;
+		transform:perspective(1000px) translateZ(-10000px) ;
+	}
+	30%{
 		opacity: 0;
 		transform:perspective(1000px) translateZ(-10000px) ;
 	}
@@ -249,4 +373,138 @@ a{
 		opacity: 1;
 		transform: perspective(1000px) translateZ(0px) ;
 	}
+
+}
+@keyframes fly-in-far {
+0%{
+		opacity: 0;
+		transform:perspective(556px) translateZ(-10000px) ;
+	}
+30%{
+		opacity: 0;
+		transform:perspective(556px) translateZ(-10000px) ;
+	}
+	100%{
+		opacity: 1;
+		transform: perspective(556px) translateZ(-250px) ;
+	}
+}
+}
+/******* CUBE */
+.radio-group {
+	padding:.25rem;
+}
+.radio-group input{
+ display: none;
+}
+.radio-group label:hover{
+	cursor: pointer;
+	font-weight: bold;
+	animation: shake 525ms infinite;
+}
+.radio-group input[type="radio"]:checked+label{
+
+	text-decoration: underline;
+}
+.scene {
+  width: 200px;
+  height: 200px;
+  margin: 80px;
+  transform-style: preserve-3d;
+  transform:perspective(300px);
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+
+.cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+.cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+@font-face {
+  font-family: fixedsys;
+  src: url('../public/resources/font/fixedsys.ttf');
+}
+.cube__face {
+	font-family: fixedsys;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid white;
+  color: white;
+  padding: .25rem;
+  font-size: .9rem;
+}
+.cube__face img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.cube__face h3, .cube__face p {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.cube__face {
+	transition: filter 1s;
+	filter: saturate(0%);
+}
+.cube.show-front .cube__face--front,
+.cube.show-right .cube__face--right,
+.cube.show-back .cube__face--back,
+.cube.show-left .cube__face--left,
+.cube.show-top .cube__face--top,
+.cube.show-bottom .cube__face--bottom,
+ {filter: saturate(100%);}
+
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+.cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+label { margin-right: 10px; }
+
+@media screen and (min-width: 592px) {
+
+.scene , .cube , 
+.cube__face {
+  width: 300px;
+  height: 300px;
+}
+.cube__face--front  { transform: rotateY(  0deg) translateZ(150px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(150px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(150px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(150px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(150px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+	}
+/******  Shoe */
+.mt-5{
+margin-top:  5rem;
+}
+.mt-1{
+margin-top: 1rem;
+}
+.pt-3{
+	padding-top: 3rem;
 }

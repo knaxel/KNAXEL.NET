@@ -34,7 +34,7 @@ export default class PixelAsh {
 
         this.camera = new Three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
         var s = 150;
-        this.camera.position.z = s;
+        this.camera.position.z = s*2;
 
         this.scene = new Three.Scene();
         this.scene.fog = new Three.FogExp2( 0x000000, 0.008 );

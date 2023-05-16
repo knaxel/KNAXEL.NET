@@ -10,11 +10,13 @@ class Scene extends Component {
         this.canvasRef = React.createRef();
     }
 
+
     // ******************* COMPONENT LIFECYCLE ******************* //
     componentDidMount() {
         // this.stats = new Stats();
         // document.body.appendChild( this.stats.dom );
-
+        this.audio = new Audio("resources/music/main_theme_intro.mp3");
+        this.playing = false;
         
         const canvas = this.canvasRef.current;
         this.viewGL = new PixelAsh(canvas, this.stats);
@@ -48,7 +50,17 @@ class Scene extends Component {
     handleResize = () => {
         this.viewGL.onWindowResize(window.innerWidth, window.innerHeight);
     };
-
+    toggle = () => {
+      if(this.playing){
+        this.audio.pause();
+        this.playing = false;
+        document.getElementById('un-mute-button').innerHTML = "🔊UNMUTE🔊";
+      }else{
+        this.audio.play();
+        this.playing = true;
+        document.getElementById('un-mute-button').innerHTML = "🔇MUTE🔇";
+      }
+    }
     render() {
         return (
 
@@ -56,6 +68,9 @@ class Scene extends Component {
 
                 <canvas ref={this.canvasRef} />
                 
+                <div className="audio">
+                    <button onClick={this.toggle} id="un-mute-button" className="glitch ">🔊UNMUTE🔊</button>
+                </div>
                   
             </div>
 

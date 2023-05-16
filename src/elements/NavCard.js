@@ -18,7 +18,6 @@ export default class NavCard extends Component {
             <div> 
             <img src={this.props.src}/>
             </div>
-            {/*<div className="shadow" ></div>*/}
         </div>
 
         <div  className={` glitch `} >

@@ -20,23 +20,49 @@ export default class Projects extends Component {
 
     }
     render() { return (
-    <div  id="perspective-container">
-      <div className="col perspective">
+    <div  id="perspective-container" className="col ">
+      <Scene/>
+      <div className="col  fly-in ">
           <NavLink text="PROJECTS" className=" title  " href="#" />
           <NavLink text="← GO BACK ←" className="   " href="./" />
       </div>
-
-      <div className="row ">
-        <ProjectCard href="#" name="Climb Grader"       className="perspective" src="./climb.png"/>
-        <ProjectCard href="#" name="Voxel Game Engine"  className="perspective" src="./voxel.png"/>
-        <ProjectCard href="#" name="Shoe-Leather"       className="perspective" src="./shoe-leather-256.png"/>
-        <ProjectCard href="#" name="DynamiCode"         className="perspective" src="./dynamicode.png"/>
-        <ProjectCard href="#" name="Prodecural OpenGL"  className="perspective" src="./opengl.png"/>
-        <ProjectCard href="#" name="Gravity Sim"        className="perspective" src="./idk8.gif"/>
-        <ProjectCard href="#" name="Jimmys Maze"        className="perspective" src="./idk9.gif"/>
+      <div className="row">
+        <ProjectCard 
+        name="Climb Grader"
+        text=""
+        className="perspective fly-in" 
+        src="resources/projects/climb.png"
+        href="https://github.com/knaxel/"/>
+        <ProjectCard 
+        name="Voxel Game Engine"
+        className="perspective fly-in" 
+        src="resources/projects/voxel.png" 
+        href="https://github.com/knaxel/Voxel-Chunk-Greedy-Meshing-Example-with-ECS" />
+        <ProjectCard 
+        name="Prodecural OpenGL"  
+        className="perspective fly-in" 
+        src="resources/projects/opengl.png"  
+        href="https://github.com/knaxel/opengl_procedural_example" />
+        <ProjectCard 
+        name="Shoe-Leather"       
+        className="perspective fly-in" 
+        src="resources/projects/shoe-leather-256.png" 
+        href="https://github.com/various-office-supplies/shoe-leather"/>
+      </div>
+      <div className="row">
+        <ProjectCard href="https://github.com/knaxel/" 
+        name="DynamiCode"         
+        className="perspective fly-in" 
+        src="resources/projects/dynamicode.png"/>
+        <ProjectCard href="#" 
+        name="N-Body Gravity Sim"        
+        className="perspective fly-in" 
+        src="resources/projects/n-body.png"/>
+        <ProjectCard href="https://github.com/knaxel/" 
+        name="Jimmys Maze"        
+        className="perspective  fly-in" 
+        src="resources/projects/JimmysMaze.png"/>
       </div>
 
-      <Scene/>
-      <NavLink text="← GO BACK ←" className="" href="./" />
     </div> )};
   }
