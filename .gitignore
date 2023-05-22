@@ -11,7 +11,7 @@
 # production
 /build
 .firebase
-.firebaseerc
+.firebaserc
 knaxel.net.sublime-project
 knaxel.net.sublime-workspace
 
