@@ -10,6 +10,10 @@
 
 # production
 /build
+.firebase
+.firebaseerc
+knaxel.net.sublime-project
+knaxel.net.sublime-workspace
 
 # misc
 .DS_Store
