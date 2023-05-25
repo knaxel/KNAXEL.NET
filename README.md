@@ -1,4 +1,4 @@
-# Persona Website [KNAXEL.NET](https://knaxel.net)
+# Online Persona Website [KNAXEL.NET](https://knaxel.net)
 
 A fun demonstration of the limits you can push with modern CSS, JavaScript, and WebGL.
 
