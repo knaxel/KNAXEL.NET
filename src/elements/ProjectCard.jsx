@@ -17,6 +17,11 @@ export default class ProjectCard extends Component {
             <div className="col project_main">
               <h2>{this.props.name}</h2>
               <hr></hr>
+              <div className="col intro">
+                  <p>
+                    {this.props.intro} 
+                  </p>
+              </div>
               <div className="col  ">
                   <input type="checkbox" name="collapse" id={"description" + this.props.name.replace(/\s/g, '') }  />
                   <h4>Description</h4>
@@ -30,9 +35,9 @@ export default class ProjectCard extends Component {
                   <input type="checkbox" name="collapse" id={"images" + this.props.name.replace(/\s/g, '')}  />
                   <h4>Images</h4>
                   <label htmlFor={"images" + this.props.name.replace(/\s/g, '')} className="close"> </label>
-                  <ul class="col">
+                  <ul className="col">
                     {this.props.images.map((image, i) => { 
-                          return ( <img src={image} /> ) 
+                          return ( <li><img src={image} /></li> ) 
                     })}
                     </ul>
               </div>

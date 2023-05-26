@@ -69,7 +69,8 @@ a{
 	background: linear-gradient(0deg, rgba(28,28,28,1) 0%, rgba(71,71,71,1) 100%);
 	padding:.4rem;
 	border-radius: .3rem;
-	transition:all .5s ease;
+	outline:1px solid rgba(0,0,0,0);
+	transition: all .5s ease;
 	min-width: fit-content;
 	flex-direction: row;
 	display: flex;
@@ -85,7 +86,7 @@ a{
 	background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(50,50,50,1) 100%);
 	padding:.4rem;
 	border-radius: .3rem;
-	outline-color: white;
+	outline:1px solid #fffffaa1;
 	box-shadow:0 3px 12px rgba(0,0,0,.35);
 	text-shadow:0 0 5px white;
 }
@@ -240,9 +241,9 @@ h1,h2,h3,h4,h5,h6{
   	
   }
 }
-.project > .col {
+/*.project > .col {
 	flex:0;
-}
+}*/
 .project .logo{
 	padding:5px;
 	background:white;
@@ -260,14 +261,16 @@ h1,h2,h3,h4,h5,h6{
 	height:100%;
 	width:100%;
 } 
-.project p{
+.project  p{
+  margin:0px;
 	text-align: center;
+}
+.project_main > :not(.intro) p{
+  height:0;
   overflow: hidden;
   text-overflow: ellipsis;
-  height:0;
   word-wrap: normal ;
   max-width: 28ch;
-  margin:0px;
 }
 .project .images ul{
 
@@ -278,6 +281,9 @@ h1,h2,h3,h4,h5,h6{
   height:0;
   margin:0px;
 
+}
+.project .images img{
+	max-width:100%;
 }
 .project label:hover{
 	cursor: pointer;
@@ -337,7 +343,7 @@ h1,h2,h3,h4,h5,h6{
 		margin-top:.25rem;
 		margin-bottom:.5rem;
 	}
-	.project p{
+	.project_main > :not(.intro) p{
 		text-align: left;
 		flex:1;
 		margin-top:.25rem;
@@ -352,7 +358,11 @@ h1,h2,h3,h4,h5,h6{
 		width:200px;
 		border-radius:64px;
 	}
+.project {
+	width:900px;
 }
+}
+
 @media screen and (min-width: 1200px) {
 .project {
 	width:1100px;
