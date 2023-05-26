@@ -1,5 +1,7 @@
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 :root {
-		font-size:32px;
+	  font-size:22px;
   color:white;
 }
 * {
@@ -52,25 +54,53 @@ canvas{
   z-index: 0;
   transform:translateZ(-1000px);
 }
+hr{
+	width:100%;
+}
 a{
-  text-decoration: none;
   color:white;
 	padding-left: .2rem;
 	padding-right: .2rem;
-
+	font-size:1.2rem;
+}
+.github-link{
+	text-decoration: none;
+	background: rgb(28,28,28);
+	background: linear-gradient(0deg, rgba(28,28,28,1) 0%, rgba(71,71,71,1) 100%);
+	padding:.4rem;
+	border-radius: .3rem;
+	transition:all .5s ease;
+	min-width: fit-content;
+	flex-direction: row;
+	display: flex;
+	font-size:24px;
+}
+.github-link i{
+	margin:auto;
+	font-size:32px;
+	padding-right:8px;
+}
+.github-link:hover{
+	background: rgb(10,10,10);
+	background: linear-gradient(0deg, rgba(15,15,15,1) 0%, rgba(50,50,50,1) 100%);
+	padding:.4rem;
+	border-radius: .3rem;
+	outline-color: white;
+	box-shadow:0 3px 12px rgba(0,0,0,.35);
+	text-shadow:0 0 5px white;
 }
 button{
 	  font-family: "Barlow", sans-serif;
 	  font-weight: 100;
 		font-size:32px;
 }
-h1{
+h5{
+	font-size: 1rem;
+}
+h1,h2,h3,h4,h5,h6{
 	text-align: left;
 	padding: 0px;
 	margin: 0px;
-}
-p{
-	width: 10rem;
 }
 .audio{
 	position: fixed;
@@ -104,11 +134,6 @@ p{
 	align-items: center;
   	z-index: 1;
 }
-.row >div {
-	margin-left:auto;
-	margin-right:auto;
-
-}
 .col{
   	z-index: 1;
 	display: flex;
@@ -138,26 +163,25 @@ p{
 }
 
 /******* Text */
-
+.text-center{
+	text-align: center;
+}
 .title , .title .line, .title a {
 	color:white; 
 	display: block;
 	font-weight: 300;
-	font-size:1.9rem;
-	line-height: 3rem;
+	font-size:3rem;
+	line-height: 3.2rem;
 	border: none;
 	text-decoration: underline;
 }
 
 @media screen and (min-width: 992px) {
 	.title , .title .line, .title a {
-		font-size:3rem;
-		line-height: 3rem;
+		font-size:5rem;
+		line-height: 5rem;
 	}
 
-}
-.title:hover > .glitch > .line {
-	animation: none;
 }
 
 .glitch {
@@ -171,88 +195,176 @@ p{
 
 }
 
-/*********** Cards */
-
-.flip-card {
-  width: 255px;
-  height: 255px;
-
-	margin-left:.5rem;
-	margin-right:.5rem;
-  margin-top: .1rem;
-  margin-bottom: .25rem;
-  display: flex;
-  flex-direction:column;
+/*********** Projects */
+#projects{
+	padding: 1rem;
+	padding-top: .5rem;
+	max-width:100vw;
 }
-.flip-card .glitch{
+#projects > p{
+	max-width:850px;
+}
 
-	position: absolute;
-	width: 100%;
-	bottom: 0px;
-	align-items:center;
+.project h1,.project h2,.project h3,.project h4,.project h5,.project h6{
+	font-weight:300;
+	margin:unset;
+}
+.project { 
+	border-radius: .3rem;
+	margin-bottom: 2rem;
+	background:#41587a;
+/*	background: conic-gradient(from 30deg, #41587a, #0a244c 50%, #41587a);*/
+/*	background: radial-gradient(circle,
+	 hsl(214.8deg,  67.57%,  14.51%, 100%) 0%,
+	 hsl(216.36deg, 76.74%,  16.86%, 100%) 30%,
+	 hsl(215.79deg, 30.48%,  36.67%, 100%) 100%);*/
+/*	border: 3px solid rgba(255,255,255,0.8);*/
+/*	border-radius: 1rem;*/
+	background: linear-gradient(4deg, hsl(215.79deg, 30.48%, 36.67%) 0%, hsl(216.36deg, 76.74%, 16.86%) 21%, hsl(215.79deg, 30.48%, 36.67%) 100%);
+	
+	display: flex;
+	padding:.5rem;
+  width:350px;
+  min-height: 350px;
+}
+
+@for $i from 3 through 8 {
+
+  .project:nth-child(#{$i}) {
+    
+  	background: linear-gradient(4deg, 
+  		hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 0%,
+  		 hsl(216.36deg+$i/8*360deg, .5*76.74%, .9*16.86%) 21%,
+  		  hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 100%);
+
+  	
+  }
+}
+.project > .col {
+	flex:0;
+}
+.project .logo{
+	padding:5px;
+	background:white;
+	border-radius:15px;
+	height:64px;
+	width:64px;
+	margin:3px;
+
+}
+.project .github-link {
+	align-self:center;
+}
+.project_main {
+	flex:1;
+	height:100%;
+	width:100%;
+} 
+.project p{
 	text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height:0;
+  word-wrap: normal ;
+  max-width: 28ch;
+  margin:0px;
 }
-.flip-card .glitch span { 
+.project .images ul{
 
-	width: 100%;
-	}
-.flip-card-inner{
-	position: relative;
-	display:block;
-  transition: transform .8s;
-  transform-style: preserve-3d;
-	height:100%;
-	width:100%;
+  padding-left:0;
 }
-.flip-card-front{
-  /*border: 1px dotted white;*/
-  justify-content: center;
-  text-align: center;
-	height:100%;
-	width:100%;
-  width: 255px;
-  height: 255px;
+.project ul{
+  overflow: hidden;
+  height:0;
+  margin:0px;
+
 }
-.flip-card-back{
-	height:100%;
-	width:100%;
-  background-color: rgba(0,0,0,.85);
-  transform: rotateY(180deg);
-}
-.flip-card-back ,.flip-card-front{
-	position:absolute;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-.flip-card .media {
-	position: absolute;
-}
-.flip-card .media > div img { 
-  width: 255px;
-  height: 255px;
-}
-.flip-card:hover{
+.project label:hover{
 	cursor: pointer;
 }
+.project label{
+	text-decoration: underline;
+	display: inline;
+	margin:0;
+  margin-bottom:.6rem;
+}
+.project input[type="checkbox"] {
+	display:none;
+}
+.project label:before{
+	content:'click me';
+}
+.project input[type="checkbox"]:checked {
+		~ p {
+			height: fit-content;
+			width:unset;
+			flex:1;
+		}
+		~ ul {
+			height:fit-content;
+			flex:1;
+		}
+		~ label:before {
+			content:'close ';
+		}
+}
 
-@media screen and (min-width: 592px) {
-.flip-card:hover > .flip-card-inner {
-  transform: rotateY(180deg);
-}
-}
 @media screen and (min-width: 992px) {
-	.flip-card{
-	  margin-top: 1rem;
-	  margin-bottom: 1rem;
+	.project h1,.project h2,.project h3,.project h4,.project h5,.project h6{
+		align-self: flex-start;
+	}
+	.project{
+		padding:1rem;
+	}
+	.project > * {
+		padding:1rem;
+		align-items: unset;
+	}
+	.project  .images > label{
+		align-self: flex-start;
+	}
+	.project  :not(.images) > label{
+		display: none;
+	}
+	.project .project_main{
+		flex:1;
+	}
+	.project > .col {
+		align-self: flex-start;
+	}
+	.project > :not(.images) > ul{
+		flex:1;
+		margin-top:.25rem;
+		margin-bottom:.5rem;
+	}
+	.project p{
+		text-align: left;
+		flex:1;
+		margin-top:.25rem;
+		margin-bottom:.25rem;
+		align-self: flex-start;
+  	max-width: unset;
+	}
+	.project .logo {
+		padding:1rem;
+		align-self: flex-start;
+		height:200px;
+		width:200px;
+		border-radius:64px;
 	}
 }
+@media screen and (min-width: 1200px) {
+.project {
+	width:1100px;
+}
+}
+
+/*********** Cards */
+
 
 /***/
-.card{
-	margin-left:1rem;
-	margin-right:1rem;
-}
 .card .media{
+
 	display: none;
 	margin: auto;
 	margin-bottom: .5rem;
@@ -264,10 +376,11 @@ p{
 }
 
 .card .media > div img {
-		height: 192px;
-		width: 192px;
+		height: 256px;
+		width: 256px;
 }
 .card a{
+	font-size:2rem;
  	display: flex;
  	flex-direction: column;
   /*border: 1px dotted white;*/
@@ -281,18 +394,19 @@ p{
 }
 
 @media screen and (min-width: 992px) {
-	.card a{
+	.card a{/*
 	  margin-top: 1rem;
-	  margin-bottom: 1rem;
+	  margin-bottom: 1rem;*/
+	  margin:1rem;
 	}
 }
 /********************* Effects */
 .fly-in{
 	will-change: left;
-	animation: fly-in 1.5s  ;
-}.fly-in-far{
-	will-change: left;
-	animation: fly-in-far 1.5s  ;
+	animation: fly-in 1.0s  ;
+}
+ .navlink a{
+	font-size:2rem;
 }
 .card a:hover, .navlink a:hover, button:hover {
     animation: shake 525ms infinite;
@@ -330,34 +444,18 @@ p{
 @keyframes fly-in {
 0%{
 		opacity: 0;
-		-webkit-transform:perspective(1000px) translateZ(-1000px) ;
-		transform:perspective(1000px) translateZ(-1000px) ;
+		transform:perspective(1000px)  translateZ(-1000px) ;
 	}
 30%{
 		opacity: 0;
-		-webkit-transform:perspective(1000px) translateZ(-1000px) ;
 		transform:perspective(1000px) translateZ(-1000px) ;
 	}
 	100%{
 		opacity: 1;
-		-webkit-transform: perspective(1000px) translateZ(0px) ;
 		transform: perspective(1000px) translateZ(0px) ;
 	}
 }
-@keyframes fly-in-far {
-0%{
-		opacity: 0;
-		transform:perspective(430px) translateZ(-1000px) ;
-	}
-30%{
-		opacity: 0;
-		transform:perspective(430px) translateZ(-1000px) ;
-	}
-	100%{
-		opacity: 1;
-		transform: perspective(430px) translateZ(-250px) ;
-	}
-}
+
 @media screen and (min-width: 992px) {
 
 @keyframes fly-in {
@@ -367,27 +465,13 @@ p{
 	}
 	30%{
 		opacity: 0;
-		transform:perspective(1000px) translateZ(-10000px) ;
+		transform:perspective(1000px)  translateZ(-10000px) ;
 	}
 	100%{
 		opacity: 1;
 		transform: perspective(1000px) translateZ(0px) ;
 	}
 
-}
-@keyframes fly-in-far {
-0%{
-		opacity: 0;
-		transform:perspective(556px) translateZ(-10000px) ;
-	}
-30%{
-		opacity: 0;
-		transform:perspective(556px) translateZ(-10000px) ;
-	}
-	100%{
-		opacity: 1;
-		transform: perspective(556px) translateZ(-250px) ;
-	}
 }
 }
 /******* CUBE */

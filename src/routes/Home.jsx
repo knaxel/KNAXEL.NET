@@ -24,14 +24,11 @@ export default class Home extends Component {
     render() { return (
     <div  id="perspective-container" className="col ">
       <Scene/>
-      <NavLink text="KNAXEL.NET" className="row title pt-3  perspective-far  fly-in-far" href="#" />
-      <div className="row perspective ">
-        <NavCard text="MEDIA"  href="media" className="fly-in" src="resources/gif/idk3.gif" href="./media"/>
-        <div className="col "  >
-          <NavCard text="EXPLORE"  className="fly-in" src="resources/gif/idk2.gif"  href="#" />
-          <NavLink text="PROJECTS" className="fly-in" href="/projects" />
-        </div>
-        <NavCard text="ABOUT"  className="fly-in" src="resources/gif/idk7.gif"  href="about" />
+      <NavLink text="KNAXEL.NET" className="row title pt-3  perspective-far  fly-in" href="#" />
+      <div className="row  ">
+        <NavCard text="MEDIA"  className="fly-in perspective" src="resources/gif/idk3.gif" href="./media"/>
+        <NavCard text="PROJECTS"  className="fly-in perspective" src="resources/gif/idk2.gif"  href="/projects" />
+        <NavCard text="ABOUT"  className="fly-in perspective" src="resources/gif/idk7.gif"  href="about" />
       </div>
     </div> )};
   }

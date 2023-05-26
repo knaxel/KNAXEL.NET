@@ -32,13 +32,12 @@ export default class PixelAsh {
         this.windowHalfY = window.innerHeight / 2;
 
 
-        this.camera = new Three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+        this.camera = new Three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 15, 2000 );
         var s = 150;
         this.camera.position.z = s*2;
 
         this.scene = new Three.Scene();
         this.scene.fog = new Three.FogExp2( 0x000000, 0.008 );
-
 
 
         this.materials = [];
@@ -142,10 +141,6 @@ export default class PixelAsh {
         const time = Date.now() * 0.00005;
         this.tx = -this.tl + time;
 
-         this.camera.position.x += (  this.mouseX - this.camera.position.x*50)/1000 ;
-         this.camera.position.y += ( - this.mouseY - this.camera.position.y*50)/1000 ;
-            this.camera.position.z -=(this.camera.position.z-50)/250*10;
-       this.camera.lookAt( this.scene.position );
 
         for ( let i = 0; i < this.scene.children.length; i ++ ) {
 
@@ -153,12 +148,16 @@ export default class PixelAsh {
 
             if ( object instanceof Three.Points ) { 
 
-                object.rotation.y +=  .000035* ( i < 4 ? i + 1 : - ( i + 1 ) );
-                object.rotation.z +=  .000035* ( i < 4 ? i + 1 : - ( i + 1 ) );
+                object.rotation.y +=  .00035* ( i < 4 ? i + 1 : - ( i + 1 ) );
+                object.rotation.z +=  .00035* ( i < 4 ? i + 1 : - ( i + 1 ) );
 
             }
 
         }
+        this.camera.position.x += (  this.mouseX - this.camera.position.x*50)/1000 ;
+        this.camera.position.y += ( - this.mouseY - this.camera.position.y*50)/1000 ;
+        this.camera.position.z -=(this.camera.position.z-50)/250*10;
+        this.camera.lookAt( this.scene.position );
 
 
         this.renderer.render( this.scene, this.camera );

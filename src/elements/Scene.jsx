@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import { isMobile } from "react-device-detect";
 import PixelAsh from '../scripts/ThreeJS_KNAXELSBUNDLE2';
 import Stats from 'stats-js'; 
 import { GUI } from 'dat.gui';
 
-class Scene extends Component {
+export default class Scene extends Component {
 
     constructor() {
         super();
@@ -21,9 +22,10 @@ class Scene extends Component {
         const canvas = this.canvasRef.current;
         this.viewGL = new PixelAsh(canvas, this.stats);
 
-
         // Init any event listeners
-        window.addEventListener('mousemove', this.mouseMove);
+        if(!isMobile){
+            window.addEventListener('mousemove', this.mouseMove);
+        }
         window.addEventListener('resize', this.handleResize);
 
 
@@ -37,8 +39,11 @@ class Scene extends Component {
     }
 
     componentWillUnmount() {
-        // Remove any event listeners
-        window.removeEventListener('mousemove', this.mouseMove);
+
+        if(!isMobile){
+            window.removeEventListener('mousemove', this.mouseMove);
+        }
+
         window.removeEventListener('resize', this.handleResize);
     }
 
@@ -77,4 +82,3 @@ class Scene extends Component {
         );
     }
 }
-export default  Scene;
