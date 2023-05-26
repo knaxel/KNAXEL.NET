@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter , Routes, Route, useSearchParams } from 'react-router-dom';
 
 import Home from './routes/Home';
 import Media from './routes/Media';
@@ -9,22 +9,27 @@ import ListOThings from './routes/ListOThings';
 import NotFound from './routes/404';
 
 
-export function App() {
+
+
+export default function App(){
+    const ProjectsLocation = props =>{
+      const params = useSearchParams()[0].get("returnURL");
+    
+    return (<Projects returnURL={params}/>);
+  }
 
   return (
-    <Router>
+    <BrowserRouter>
       <Suspense fallback={<div> Loading... </div> }>
         <Routes>
-          <Route path="/*" element={<NotFound/>} />
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/things_i_know" element={<ListOThings />} />
+          <Route path="/*" element={<NotFound/>} ></Route>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/projects" element={<ProjectsLocation/>}></Route>
+          <Route path="/media" element={<Media />} ></Route>
+          <Route path="/about" element={<About />} ></Route>
+          <Route path="/things_i_know" component={<ListOThings />} ></Route>
         </Routes>
       </Suspense>
-    </Router>
+    </BrowserRouter>
   );
 }
-
-export default App;

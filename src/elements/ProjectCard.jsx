@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 
 export default class ProjectCard extends Component {
-  constructor(){
-      super();
 
-  }
-  componentDidMount(){
-
-  }
   render(){
     return (
       <div className="row project  fly-in"  >
-            <img className="logo" src={this.props.logo} />
+            <img className="logo" alt="resources/gif/idk.gif" src={this.props.logo} />
             <div className="col project_main">
               <h2>{this.props.name}</h2>
               <hr></hr>
@@ -37,7 +30,7 @@ export default class ProjectCard extends Component {
                   <label htmlFor={"images" + this.props.name.replace(/\s/g, '')} className="close"> </label>
                   <ul className="col">
                     {this.props.images.map((image, i) => { 
-                          return ( <li><img src={image} /></li> ) 
+                          return ( <li><img alt="resources/gif/idk.gif" src={image} /></li> ) 
                     })}
                     </ul>
               </div>

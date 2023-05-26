@@ -164,7 +164,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /******* Text */
-.text-center{
+.text-center{ 
 	text-align: center;
 }
 .title , .title .line, .title a {
@@ -232,11 +232,9 @@ h1,h2,h3,h4,h5,h6{
 @for $i from 3 through 8 {
 
   .project:nth-child(#{$i}) {
-    
-  	background: linear-gradient(4deg, 
-  		hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 0%,
-  		 hsl(216.36deg+$i/8*360deg, .5*76.74%, .9*16.86%) 21%,
-  		  hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 100%);
+
+  	// sass-lint:disable-next-line 
+  	background: linear-gradient(4deg, hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 0%,hsl(216.36deg+$i/8*360deg, .5*76.74%, .9*16.86%) 21%,hsl(215.79deg+$i/8*360deg, .5*30.48%, .9*36.67%) 100%); 
 
   	
   }
@@ -536,13 +534,14 @@ h1,h2,h3,h4,h5,h6{
   border: 2px solid white;
   color: white;
   padding: .25rem;
-  font-size: .9rem;
+  font-size: 1.2rem;
 }
 .cube__face img{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+	opacity: .5;
 }
 .cube__face h3, .cube__face p {
 	padding: 0;

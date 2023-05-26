@@ -4,17 +4,12 @@ import effect_perspective from '../scripts/effect_perspective';
 import effect_cube from '../scripts/effect_cube';
 
 import Scene from '../elements/Scene';
-import NavCard from '../elements/NavCard';
 import NavLink from '../elements/NavLink';
 
 import '../root.scss';
 
 export default class Home extends Component {
 
-  constructor(){
-    super();
-
-  }
   // ******************* COMPONENT LIFECYCLE ******************* //
   componentDidMount() {
     effect_cube();
@@ -43,7 +38,7 @@ export default class Home extends Component {
           <label for="rad4" >Photo</label>
 
           <input id="rad5" type="radio" name="rotate-cube-side" value="top" /> 
-          <label for="rad5"> Music</label>
+          <label for="rad5"> Audio</label>
 
           <input id="rad6" type="radio" name="rotate-cube-side" value="bottom" />
           <label for="rad6"> Story</label>
@@ -54,23 +49,39 @@ export default class Home extends Component {
         <div className="scene perspective" >
           <div className="cube ">
             <div className="cube__face cube__face--front">
-              <h3>HELLO</h3>
+              <h3>WELCOME</h3>
               <p>
-                I am KNAXEL. Click on labels above to rotate the cube.
+                I am KNAXEL and I am a digital creator. 
+                <br></br>
+                Key skills I have are Software Engineering, Multimedia Production, and Design
+                <br></br>
+                Click on the labels above to rotate the cube and read more.
               </p>
               <img src="resources/gif/cube_hello.gif"/>
             </div>
             <div className="cube__face cube__face--right">
-              <img src="resources/gif/cube_code.gif"/>
+              <img src="resources/gif/cube_photography.gif"/>
+              <p>
+                I am a Bachelor of Computer Science with a minor in Mathematics.
+              </p>
               </div>
             <div className="cube__face cube__face--left">
-              <img src="resources/gif/cube_code.gif"/>
+              <img src="resources/gif/cube_photography.gif"/>
+              <p>
+                Almost all my projects, or anything under my name, was either entirely or partially designed by me. I have grown up designing my own logos, websites, products, and more for various projects. 
+              </p>
               </div>
             <div className="cube__face cube__face--back">
-              <img src="resources/gif/cube_photography.gif"/>
+              <img src="resources/gif/cube_code.gif"/>
+              <p>
+                I crossed over from a purely digital medium more recently into general multimedia production though, I've always had a passion for framing.
+              </p>
               </div>
             <div className="cube__face cube__face--top">
               <img src="resources/gif/cube_music.gif"/>
+              <p>
+                Much alike my design experienced, I've grown equiped with experience in audio engineering and music production. This website has a tune you can start playing from the bottom of your screen.
+              </p>
               </div>
             <div className="cube__face cube__face--bottom">
               <img src="resources/gif/cube_story.gif"/>

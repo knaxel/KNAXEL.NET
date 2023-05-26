@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import effect_perspective from '../scripts/effect_perspective';
 
 import Scene from '../elements/Scene';
 import NavLink from '../elements/NavLink';
@@ -8,22 +7,29 @@ import ProjectCard from '../elements/ProjectCard';
 
 import '../root.scss';
 
-export default class Projects extends Component {
+ class Projects extends Component {
 
-  constructor(){
-    super();
-
-  }
     // ******************* COMPONENT LIFECYCLE ******************* //
     componentDidMount() {
 
     }
-    render() { return (
+    render() { 
+      this.return = "https://knaxel.net/";
+      if(this.props.returnURL != null){
+      this.return = this.props.returnURL;
+      }
+
+
+
+      return (
     <div  id="" className="col ">
       <Scene/>
       <div className="col  fly-in ">
-          <NavLink text="PROJECTS" className=" title  " href="#" />
-          <NavLink text="← GO BACK ←" className="   " href="http://localhost:3000/" />
+          <NavLink text="PROJECTS" className=" title  " href="" />
+          {(this.props.returnURL && this.props.returnURL.trim() !== '') && 
+            <NavLink text="← KNAXEL.NET ←" className="" href="https://knaxel.net/"  />
+          }
+          <NavLink text="← GO BACK ←" className="" href={this.return}  />
       </div>
       <div id="projects" className="col">
 
@@ -53,7 +59,7 @@ export default class Projects extends Component {
           "resources/projects/knaxel.net/3.gif"
         ]}
         href="https://github.com/knaxel/knaxelnet"/>
-        
+
         <ProjectCard 
         name="Climb Grader"
         intro="
@@ -144,3 +150,4 @@ export default class Projects extends Component {
 
     </div> )};
   }
+  export default (Projects);
